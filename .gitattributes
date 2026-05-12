@@ -1,1 +1,1 @@
-*.pdsprj linguist-vendored
+*.tcl linguist-detectable=false
