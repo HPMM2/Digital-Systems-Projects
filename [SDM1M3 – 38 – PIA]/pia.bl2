@@ -1,0 +1,134 @@
+#$ TOOL ispLEVER Classic 2.1.00.02.49.20
+#$ DATE Tue Nov 23 01:31:05 2021
+#$ MODULE PIA
+#$ JEDECFILE pia
+#$ PINS 13 clk:1 m0:2 m1:3 reset:4 l0:23 l1:22 l2:21 l3:20 l4:19 q3 q2 q1 q0
+
+.model pia
+.inputs clk.BLIF reset.BLIF q3.FB q2.FB q1.FB q0.FB m0.BLIF m1.BLIF
+.outputs l0 l1 l2 l3 l4 q3.C q2.C q1.C q0.C q3.AR q2.AR q1.AR q0.AR q0.REG \
+q1.REG q2.REG q3.REG
+.names q3.FB q2.FB q1.FB q0.FB l0
+1000 1
+0-01 1
+-1-0 0
+0--0 0
+--1- 0
+1--1 0
+.names q3.FB q2.FB q1.FB q0.FB l1
+1000 1
+0-10 1
+01-0 1
+000- 0
+1-1- 0
+11-- 0
+---1 0
+.names q3.FB q2.FB q1.FB q0.FB l2
+1000 1
+0-11 1
+00-1 1
+--10 0
+-10- 0
+0--0 0
+1--1 0
+.names q3.FB q2.FB q1.FB q0.FB l3
+1000 1
+0-10 1
+01-0 1
+000- 0
+1-1- 0
+11-- 0
+---1 0
+.names q3.FB q2.FB q1.FB q0.FB l4
+1000 1
+0-01 1
+-1-0 0
+0--0 0
+--1- 0
+1--1 0
+.names q3.FB q2.FB q1.FB q0.FB m0.BLIF m1.BLIF q0.REG
+011-01 1
+-00010 1
+-00001 1
+0--100 1
+0--010 1
+0--001 1
+1--1-- 0
+---000 0
+---11- 0
+--01-1 0
+-0-1-1 0
+1-1--- 0
+11---- 0
+----11 0
+.names q3.FB q2.FB q1.FB q0.FB m0.BLIF m1.BLIF q1.REG
+011-0- 1
+100010 1
+010010 1
+00-110 1
+0-0101 1
+0-100- 1
+0-11-0 1
+-101-0 0
+1---0- 0
+00-01- 0
+--00-1 0
+-011-1 0
+--101- 0
+--0-00 0
+11---- 0
+1--1-- 0
+----11 0
+.names q3.FB q2.FB q1.FB q0.FB m0.BLIF m1.BLIF q2.REG
+100010 1
+001101 1
+01-00- 1
+010-0- 1
+01-1-0 1
+011--0 1
+-1001- 0
+-0-00- 0
+00---0 0
+-001-- 0
+11---- 0
+1-1--- 0
+-111-1 0
+----11 0
+.names q3.FB q2.FB q1.FB q0.FB m0.BLIF m1.BLIF q3.REG
+100000 1
+100011 1
+0--111 1
+0-1-11 1
+01--11 1
+0----0 0
+0000-- 0
+1--1-- 0
+1-1--- 0
+11---- 0
+----10 0
+----01 0
+.names clk.BLIF q3.C
+1 1
+0 0
+.names clk.BLIF q2.C
+1 1
+0 0
+.names clk.BLIF q1.C
+1 1
+0 0
+.names clk.BLIF q0.C
+1 1
+0 0
+.names reset.BLIF q3.AR
+1 1
+0 0
+.names reset.BLIF q2.AR
+1 1
+0 0
+.names reset.BLIF q1.AR
+1 1
+0 0
+.names reset.BLIF q0.AR
+1 1
+0 0
+.end

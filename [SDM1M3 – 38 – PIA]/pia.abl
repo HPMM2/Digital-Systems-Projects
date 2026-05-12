@@ -1,0 +1,191 @@
+MODULE PIA
+
+//DATOS
+
+//NOMBRE: Heidi Pamela Martinez Martinez 
+
+//GRUPO: 006
+
+//HORA: JUE(MI-M3)
+
+//PIA
+
+
+DECLARATIONS
+
+//INPUTS
+
+clk	PIN 1;
+
+m0	PIN 2;
+
+m1	PIN 3;
+
+reset	PIN 4;
+
+
+//OUTPUTS
+//COMBINACIONALES
+
+l0..l4 PIN 23..19 ISTYPE 'COM';
+
+
+//REGISTRADAS
+
+q3,q2,q1,q0		PIN		ISTYPE 'REG';
+
+
+//SET
+
+FF = [q3,q2,q1,q0];
+
+
+//Estados valores de las memmorias
+
+
+E0 = [0,0,0,0];
+
+E1 = [0,0,0,1];
+
+E2 = [0,0,1,0];
+
+E3 = [0,0,1,1];
+
+E4 = 4;
+
+E5 = 5;
+
+E6 = 6;
+
+E7 = 7;
+
+E8 = 8;
+
+
+EQUATIONS
+
+FF.clk = clk; "Conectar los FF al reloj
+
+//FF.sr  = reset;.
+
+FF.ar  = reset;
+
+
+STATE_DIAGRAM FF
+
+STATE E0:
+	l0 = 0;
+	l1 = 0;
+	l2 = 0;
+	l3 = 0;
+	l4 = 0;
+	IF !m0&!m1 THEN E0; "PAUSA
+	IF  m0&!m1 THEN E1; "M0
+	IF !m0& m1 THEN E1; "M1
+	IF  m0& m1 THEN E0; "PAUSA
+	IF  reset  THEN E0;
+
+
+STATE E1:
+	l0 = 1;
+	l1 = 0;
+	l2 = 1;
+	l3 = 0;
+	l4 = 1;
+	IF !m0&!m1 THEN E1; "PAUSA
+	IF  m0&!m1 THEN E2; "M0
+	IF !m0& m1 THEN E2; "M1
+	IF  m0& m1 THEN E8; "ENCENDIDO
+	IF  reset  THEN E0; "RESET
+
+
+STATE E2:
+	l0 = 0;
+	l1 = 1;
+	l2 = 0;
+	l3 = 1;
+	l4 = 0;
+	IF !m0&!m1 THEN E2; "PAUSA
+	IF  m0&!m1 THEN E1; "M0
+	IF !m0& m1 THEN E3; "M1
+	IF  m0& m1 THEN E8; "ENCENDIDO
+	IF  reset  THEN E0; "RESET
+
+
+STATE E3:
+	l0 = 0;
+	l1 = 0;
+	l2 = 1;
+	l3 = 0;
+	l4 = 0;
+	IF !m0&!m1 THEN E3; "PAUSA
+	IF  m0&!m1 THEN E2; "M0
+	IF !m0& m1 THEN E4; "M1
+	IF  m0& m1 THEN E8; "ENCENDIDO
+	IF  reset  THEN E0; "RESET
+
+
+STATE E4:
+	l0 = 0;
+	l1 = 1;
+	l2 = 0;
+	l3 = 1;
+	l4 = 0;
+	IF !m0&!m1 THEN E4; "PAUSA
+	IF  m0&!m1 THEN E3; "M0
+	IF !m0& m1 THEN E5; "M1
+	IF  m0& m1 THEN E8; "ENCENDIDO
+	IF  reset  THEN E0; "RESET
+
+STATE E5:
+	l0 = 1;
+	l1 = 0;
+	l2 = 0;
+	l3 = 0;
+	l4 = 1;
+	IF !m0&!m1 THEN E5; "PAUSA
+	IF  m0&!m1 THEN E4; "M0
+	IF !m0& m1 THEN E6; "M1
+	IF  m0& m1 THEN E8; "ENCENDIDO
+	IF  reset  THEN E0; "RESET
+
+	
+STATE E6:
+	l0 = 0;
+	l1 = 1;
+	l2 = 0;
+	l3 = 1;
+	l4 = 0;
+	IF !m0&!m1 THEN E6; "PAUSA
+	IF  m0&!m1 THEN E5; "M0
+	IF !m0& m1 THEN E7; "M1
+	IF  m0& m1 THEN E8; "ENCENDIDO
+	IF  reset  THEN E0; "RESET
+
+STATE E7:
+	l0 = 0;
+	l1 = 0;
+	l2 = 1;
+	l3 = 0;
+	l4 = 0;
+	IF !m0&!m1 THEN E7; "PAUSA
+	IF  m0&!m1 THEN E6; "M0
+	IF !m0& m1 THEN E3; "M1
+	IF  m0& m1 THEN E8; "ENCENDIDO
+	IF  reset  THEN E0; "RESET
+
+STATE E8:
+	l0 = 1;
+	l1 = 1;
+	l2 = 1;
+	l3 = 1;
+	l4 = 1;
+	IF !m0&!m1 THEN E8; "PAUSA
+	IF  m0&!m1 THEN E7; "M0
+	IF !m0& m1 THEN E1; "M1
+	IF  m0& m1 THEN E8; "ENCENDIDO
+	IF  reset  THEN E0; "RESET
+
+
+END 
+
